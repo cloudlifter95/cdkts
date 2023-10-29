@@ -15,5 +15,6 @@ export class CdkWsTsStack extends Stack {
     const topic = new sns.Topic(this, 'CdkWsTsTopic');
 
     topic.addSubscription(new subs.SqsSubscription(queue));
+    const topic2 = new sns.Topic(this, 'CdkWsTsTopic2');
   }
 }
