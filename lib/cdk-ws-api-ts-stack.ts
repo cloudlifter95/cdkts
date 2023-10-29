@@ -3,7 +3,8 @@ import { Duration, Stack, StackProps } from 'aws-cdk-lib';
 // import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as s3 from 'aws-cdk-lib/aws-s3';
+// import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as apigw from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 
 export class CdkWsAPITsStack extends Stack {
@@ -28,6 +29,10 @@ export class CdkWsAPITsStack extends Stack {
       code: lambda.Code.fromAsset('src/lambda'),
       handler: "hello.handler"
     })
+
+    new apigw.LambdaRestApi(this, 'Endpoint', {
+      handler: hello
+    });
 
   }
 }
