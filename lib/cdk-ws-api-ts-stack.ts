@@ -31,7 +31,7 @@ export class CdkWsAPITsStack extends Stack {
       handler: "hello.handler"
     })
 
-    const helloWithCounter = new HitCounter(this, 'HelloHitCounter', {
+    const helloWithCounter = new HitCounter(this, 'HelloHitCounter2', {
       downstream: hello
     });
 
